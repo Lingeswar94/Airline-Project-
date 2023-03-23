@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="LinkAirways Test Suite">
+
+	<test name="PrimeBooking">
+		<classes>
+			<class name="FlightBooking.PrimeBooking"></class>
+		</classes>
+	</test>
+
+	<!--  <test name="Pending User Role Test case">
+		<classes>
+			<class name="Testcase.Test_User_Role_Req"></class>
+		</classes>
+	</test> -->
+
+</suite>
