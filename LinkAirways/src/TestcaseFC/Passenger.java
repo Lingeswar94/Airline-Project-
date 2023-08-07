@@ -1,6 +1,7 @@
 package TestcaseFC;
 
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ public class Passenger {
 
 	
 	static WebDriver driver;
-	
+	public static Properties properties;
 	public Passenger(WebDriver driver) {
 		
 		this.driver=driver;

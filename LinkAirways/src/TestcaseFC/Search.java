@@ -19,7 +19,7 @@ public class Search {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(id = "ucMiniSearch_rdoJourneyType_0")
+	@FindBy(xpath = "//label[@for='ucMiniSearch_rdoJourneyType_0']")
 	public static WebElement oneway;
 
 	@FindBy(xpath = "//div[@class='btn-group bootstrap-select form-control deptCitysearch']")
@@ -34,7 +34,7 @@ public class Search {
 	@FindBy (xpath="//*[@class='next']")
 	public static WebElement month;
 	
-	@FindBy (xpath="//td[@class='day dt-highlight'][normalize-space()='27']")
+	@FindBy (xpath="//td[@class='day dt-highlight'][normalize-space()='7']")
 	public static WebElement departdte;
 	
 	@FindBy (xpath="//select[@id='ucMiniSearch_ddlAdult']")

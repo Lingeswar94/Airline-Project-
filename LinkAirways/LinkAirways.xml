@@ -3,6 +3,9 @@
 
 <suite name="LinkAirways Test Suite">
 
+<listeners >
+<listener class-name="FlightBooking.TestListners"></listener>
+</listeners>
 	<test name="PrimeBooking">
 		<classes>
 			<class name="FlightBooking.PrimeBooking"></class>

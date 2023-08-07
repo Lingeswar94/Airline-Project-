@@ -45,10 +45,11 @@ public class LanuchBrowser {
 
 		//ChromeOptions options = new ChromeOptions();
 		//options.addArguments("--load-extension=C:\\Selenium\\Site_Authentication\\Site_Authentication");
+		ChromeOptions option = new ChromeOptions();
+		option.addArguments("--remote-allow-origins=*");
 	    WebDriverManager.chromedriver().setup();
-		//System.setProperty("webdriver.chrome.driver", driverLocation);
 		logger.info("Lanching Chrome Browser");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(option);
 		driver.navigate().to(Url);
 		logger.info("Navigating to Application");
 		driver.manage().window().maximize();

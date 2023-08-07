@@ -50,7 +50,6 @@ public class PrimeBooking extends LanuchBrowser {
 		select2.selectByValue("OAG");
 	}
 
-	
 	public void adultpax() {
 		Select selectadult = new Select(Search.Adult);
 		selectadult.selectByIndex(0);
@@ -127,7 +126,7 @@ public class PrimeBooking extends LanuchBrowser {
 		Search.depart.click();
 		departurecity();
 		arrivalcity();
-		Search.month.click(); 
+		Search.month.click();
 		Search.departdte.click();
 		adultpax();
 		childpax();
@@ -144,29 +143,40 @@ public class PrimeBooking extends LanuchBrowser {
 		// Adult
 		logger.info("Passgener page");
 		logger.info("Enter Adult pax");
-		Passenger.firstname.sendKeys("Lingeswar");
-		Passenger.lastname.sendKeys("GQ");
-		Passenger.mobileno.sendKeys("9875643210");
-		Passenger.email.sendKeys("lingeswar@goquo.com");
-		Passenger.confrmemail.sendKeys("lingeswar@goquo.com");
-		Passenger.Residential.sendKeys("2000-BARANGAROO,NSW");
+		String AdultpaxFirstname = properties.getProperty("AdultpaxfirstName");
+		String AdultpaxLastname = properties.getProperty("AdultpaxLastName");
+		String Mobile = properties.getProperty("MobileNo");
+		String Email = properties.getProperty("EMail");
+		String Confrimmail = properties.getProperty("Confirmmail");
+		String Resdentialno = properties.getProperty("Residential");
+		Passenger.firstname.sendKeys(AdultpaxFirstname);
+		Passenger.lastname.sendKeys(AdultpaxLastname);
+		Passenger.mobileno.sendKeys(Mobile);
+		Passenger.email.sendKeys(Email);
+		Passenger.confrmemail.sendKeys(Confrimmail);
+		Passenger.Residential.sendKeys(Resdentialno);
 		// Child
 		logger.info("Enter Child pax");
-		Passenger.Childfirstname.sendKeys("Tamil");
-		Passenger.Childlastname.sendKeys("GQ");
+		String childfirtsname = properties.getProperty("Childfirstname");
+		String childlastsname = properties.getProperty("Childlastname");
+		String ChildResidential = properties.getProperty("ChildResidential");
+		Passenger.Childfirstname.sendKeys(childfirtsname);
+		Passenger.Childlastname.sendKeys(childlastsname);
 		ChildDObdate();
 		ChildDObmonth();
 		ChildDObyear();
-		Passenger.ChildResidential.sendKeys("2000-BARANGAROO,NSW");
+		Passenger.ChildResidential.sendKeys(ChildResidential);
 		// Infant
+		String Infantfirstname = properties.getProperty("Infantfirstname");
+		String Infantlastname = properties.getProperty("Infantlastname");
+		String InfantResidential = properties.getProperty("InfantResidential");
 		logger.info("Enter Infant pax");
-		Passenger.Infantfirstname.sendKeys("Pradeep");
-		Passenger.Infantlastname.sendKeys("GQ");
+		Passenger.Infantfirstname.sendKeys(Infantfirstname);
+		Passenger.Infantlastname.sendKeys(Infantlastname);
 		InfantDObdate();
 		InfantDObmonth();
 		InfantDObyear();
-		Passenger.InfantResidential.sendKeys("2000-BARANGAROO,NSW");
-
+		Passenger.InfantResidential.sendKeys(InfantResidential);
 		Passenger.Passctn.click();
 
 		PageFactory.initElements(driver, Addon.class);
@@ -180,33 +190,42 @@ public class PrimeBooking extends LanuchBrowser {
 		logger.info("Payment Page");
 		logger.info("Enter CC detail");
 		Payment.CCpayment.click();
-		Payment.Paymentcardname.sendKeys("Tamil");
+		String Paymentcardname = properties.getProperty("Paymentcardname");
+		Payment.Paymentcardname.sendKeys(Paymentcardname);
 		expirydate();
 		Payment.Expirydate.click();
 		Payment.Expirydate.click();
-		Payment.Cardno.sendKeys("4111111111111111");
-		Payment.CVV.sendKeys("123");
+		String Cardno = properties.getProperty("Cardno");
+		Payment.Cardno.sendKeys(Cardno);
+		String CVV = properties.getProperty("CVV");
+		Payment.CVV.sendKeys(CVV);
 		Payment.BillingName.clear();
-		Payment.BillingName.sendKeys("Tamil");
-		Payment.billinglastname.sendKeys("GQ");
-		Payment.Address.sendKeys("25 SaiBaba");
-		Payment.city.sendKeys("Coimbatore");
+		String BillingName = properties.getProperty("BillingName");
+		Payment.BillingName.sendKeys(BillingName);
+		String billinglastname = properties.getProperty("billinglastname");
+		Payment.billinglastname.sendKeys(billinglastname);
+		String Address = properties.getProperty("Address");
+		Payment.Address.sendKeys(Address);
+		String city = properties.getProperty("city");
+		Payment.city.sendKeys(city);
 		Payment.Country.click();
 		Payment.Postcode.clear();
-		Payment.Postcode.sendKeys("641001");
+		String Postcode = properties.getProperty("Postcode");
+		Payment.Postcode.sendKeys(Postcode);
 		Payment.Contact.clear();
-		Payment.Contact.sendKeys("9876543210");
+		String Contact = properties.getProperty("Contact");
+		Payment.Contact.sendKeys(Contact);
 		checkbox();
 		System.out.println(Payment.rule.isSelected());
 		Payment.continuebtn.click();
 
 		PageFactory.initElements(driver, Thankspage.class);
 		logger.info("Thanks Page");
-		//Thankspage.simulation.click();
+		// Thankspage.simulation.click();
 		Thankspage.existing.click();
 		String PNR = Thankspage.PNR.getText();
 		logger.info(PNR);
-		System.out.println(Thankspage.PNR.getText());
+		//System.out.println(Thankspage.PNR.getText());
 		Thread.sleep(2000);
 		screenshot();
 	}
